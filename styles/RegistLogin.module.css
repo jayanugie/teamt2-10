@@ -1,0 +1,42 @@
+
+.card-css {
+  border-radius: 1rem;
+}
+
+.img-f-css {
+  border-radius: 1rem 0 0 1rem;
+}
+
+.i-cubes-css {
+  color: #ff6219;
+}
+
+.sign-css {
+  letter-spacing: 1px;
+}
+
+.li-lg-1 {
+  height: 10px;
+}
+
+.fgt-pss-css {
+  color: black;
+  text-decoration: none;
+}
+
+/* .d-acnt-css {
+  color: #393f81;
+} */
+
+.reg-css {
+  /* color: #393f81; */
+  text-decoration: none;
+}
+
+.bg {
+  background-color: #A5C9CA; 
+}
+
+.social-links .space {
+  padding: 7px;
+}
