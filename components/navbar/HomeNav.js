@@ -43,7 +43,7 @@ function HomeNav() {
                             className={style.link}
                             href="#"
                             onClick={() => {
-                                router.push("/GameList");
+                                router.push("/game-list");
                             }}
                             activeStyle
                         >
