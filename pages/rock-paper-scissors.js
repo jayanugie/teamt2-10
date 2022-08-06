@@ -1,0 +1,276 @@
+import React from "react";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Table } from "reactstrap";
+import style from '../styles/Game.module.css';
+
+function RockPaperScissors() {
+
+    const router = useRouter();
+
+    useEffect(() => {
+        const isAuthenticated = localStorage.getItem("isAuthenticated");
+        if (!isAuthenticated) {
+            alert("Please login first!")
+            router.push("/login");
+        }
+    });
+
+    class Game {
+        randomize() {
+            const choices = ["rock", "paper", "scissor"];
+            const index = Math.floor(Math.random() * 3);
+            return choices[index];
+        }
+
+        playGame(playerChoice) {
+            this.resetBackground();
+
+            console.log(`Player memilih ${playerChoice}`);
+            this.setBackground("player", playerChoice);
+
+            const comChoice = this.randomize();
+            console.log(`COM memilih ${comChoice}`);
+            this.setBackground("com", comChoice);
+
+            if (playerChoice === comChoice) {
+                return this.resultDraw();
+            }
+
+            if (playerChoice === "rock" && comChoice === "paper") {
+                return this.resultPlayerLose();
+            }
+
+            if (playerChoice === "rock" && comChoice === "scissor") {
+                return this.resultPlayerWin();
+            }
+
+            if (playerChoice === "paper" && comChoice === "scissor") {
+                return this.resultPlayerLose();
+            }
+
+            if (playerChoice === "paper" && comChoice === "rock") {
+                return this.resultPlayerWin();
+            }
+
+            if (playerChoice === "scissor" && comChoice === "rock") {
+                return this.resultPlayerLose();
+            }
+
+            if (playerChoice === "scissor" && comChoice === "paper") {
+                return this.resultPlayerWin();
+            }
+        }
+
+        setBackground(playerType, choice) {
+
+            const selectedElement = document.getElementById(`${playerType}-${choice}`);
+
+            selectedElement.classList.add(style["custom-selected"]);
+        }
+
+        resetBackground() {
+            document.getElementById("player-rock").classList.remove(style["custom-selected"]);
+            document.getElementById("player-paper").classList.remove(style["custom-selected"]);
+            document.getElementById("player-scissor").classList.remove(style["custom-selected"]);
+            document.getElementById("com-rock").classList.remove(style["custom-selected"]);
+            document.getElementById("com-paper").classList.remove(style["custom-selected"]);
+            document.getElementById("com-scissor").classList.remove(style["custom-selected"]);
+
+            document.getElementById("vs").classList.remove(style["custom-green-vs-box"]);
+            document.getElementById("vs").classList.remove(style["custom-green-darker-vs-box"]);
+
+            document.getElementById("vs").innerHTML = "VS";
+            document.getElementById("vs").classList.add(style["custom-vs-text"]);
+        }
+
+        resultDraw() {
+            console.log("DRAW");
+
+            const vsElement = document.getElementById("vs");
+            vsElement.innerHTML = "DRAW";
+            vsElement.classList.remove(style["custom-vs-text"]);
+            vsElement.classList.add(style["custom-green-darker-vs-box"]);
+        }
+
+        resultPlayerLose() {
+            console.log("COM WIN");
+
+            const vsElement = document.getElementById("vs");
+            vsElement.innerHTML = "COM WIN";
+            vsElement.classList.remove(style["custom-vs-text"]);
+            vsElement.classList.add(style["custom-green-vs-box"]);
+        }
+
+        resultPlayerWin() {
+            console.log("PLAYER WIN");
+
+            const vsElement = document.getElementById("vs");
+            vsElement.innerHTML = "PLAYER 1 WIN";
+            vsElement.classList.remove(style["custom-vs-text"]);
+            vsElement.classList.add(style["custom-green-vs-box"]);
+
+            const score = "SCORE";
+            if (localStorage.getItem(score) === null) {
+                localStorage.setItem(score, 0);
+            }
+            let count = localStorage.getItem(score);
+            count++;
+            localStorage.setItem(score, count);
+        }
+    }
+
+    const game = new Game();
+
+    function rock() {
+        game.playGame("rock");
+    }
+
+    function paper() {
+        game.playGame("paper");
+    }
+
+    function scissor() {
+        game.playGame("scissor");
+    }
+
+    function resetGame() {
+        console.log("--- GAME RESET --- ");
+        game.resetBackground();
+    }
+
+    const [modal, setModal] = React.useState(false);
+    const [tampil, setTampil] = React.useState(false);
+    const [playerName, setPlayerName] = React.useState("");
+    const [playerScore, setPlayerScore] = React.useState("");
+    const toggle = () => {
+        setModal(!modal);
+        setTampil(!tampil);
+        const email = "email";
+        setPlayerName(localStorage.getItem(email));
+        const score = "SCORE";
+        setPlayerScore(localStorage.getItem(score));
+    }
+
+
+    return (
+        <div className={style.body}>
+            <div className="container-fluid mt-3">
+                <div className="row align-items-center">
+                    <div className={`col-1 fs-1 fw-bolder text-end ${style['custom-back-button']}`}>
+                        <a href="/play-game" className="text-reset text-decoration-none">
+                            &lt;
+                        </a>
+                    </div>
+
+                    <div className="col-1 text-center">
+                        <img src="/img/game/logo.png" className={style["custom-logo"]} alt="logo" />
+                    </div>
+
+                    <div className={`col fs-2 fw-bold ${style['custom-game-title']}`}>ROCK PAPER SCISSOR</div>
+
+                    {/* MODAL */}
+                    <div
+                        style={{
+                            display: "block",
+                            width: 700,
+                            padding: 30,
+                        }}
+                    >
+                        <Button color="danger" onClick={toggle}>
+                            Score
+                        </Button>
+                        <Modal isOpen={modal} toggle={toggle}>
+                            <ModalHeader toggle={toggle}>Score</ModalHeader>
+                            <ModalBody>
+                                <Table>
+                                    {tampil && (
+                                        <>
+                                            <thead>
+                                                <tr>
+                                                    <th>Player</th>
+                                                    <th>Score</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>{playerName}</td>
+                                                    <td>{playerScore}</td>
+                                                </tr>
+                                            </tbody>
+                                        </>
+                                    )}
+                                </Table>
+                            </ModalBody>
+                            <ModalFooter>
+                                <Button color="primary" onClick={toggle}>
+                                    Okay
+                                </Button>
+                            </ModalFooter>
+                        </Modal>
+                    </div>
+                </div>
+            </div>
+
+            <div className={`container text-center ${style['custom-game-section']}`}>
+                <div className="row my-3 justify-content-center align-items-center">
+                    <div className={`col-2 fs-4 fw-bold ${style['custom-game-player-name']}`}>PLAYER 1</div>
+
+                    <div className="col-2"></div>
+
+                    <div className={`col-2 fs-4 fw-bold ${style['custom-game-player-name']}`}>COM</div>
+                </div>
+
+                <div className="row my-5 justify-content-center align-items-center">
+                    <div className={`col-2 align-items-center ${style['custom-choice-background']}`} id="player-rock" onClick={rock}>
+                        <img className={style["custom-choice"]} src="/img/game/batu.png" alt="player-rock" />
+                    </div>
+
+                    <div className="col-2"></div>
+
+                    <div className={`col-2 ${style['custom-choice-background']}`} id="com-rock">
+                        <img className={style["custom-choice"]} src="/img/game/batu.png" alt="com-rock" />
+                    </div>
+                </div>
+
+                <div className="row my-5 justify-content-center align-items-center">
+                    <div className={`col-2 ${style['custom-choice-background']}`} id="player-paper" onClick={paper}>
+                        <img className={style["custom-choice"]} src="/img/game/kertas.png" alt="player-paper" />
+                    </div>
+
+                    <div className={`col-2 mx-2 fw-bold ${style['custom-vs-background']} ${style['custom-vs-text']}`} id="vs">
+                        VS
+                    </div>
+
+                    <div className={`col-2 ${style['custom-choice-background']}`} id="com-paper">
+                        <img className={style["custom-choice"]} src="/img/game/kertas.png" alt="com-paper" />
+                    </div>
+                </div>
+
+                <div className="row my-5 justify-content-center align-items-center">
+                    <div className={`col-2 ${style['custom-choice-background']}`} id="player-scissor" onClick={scissor}>
+                        <img className={style["custom-choice"]} src="/img/game/gunting.png" alt="player-scissor" />
+                    </div>
+
+                    <div className="col-2"></div>
+
+                    <div className={`col-2 ${style['custom-choice-background']}`} id="com-scissor">
+                        <img className={style["custom-choice"]} src="/img/game/gunting.png" alt="com-scissor" />
+                    </div>
+                </div>
+
+                <div className="row my-5 justify-content-center align-items-center">
+                    <div className="col-2"></div>
+
+                    <div className="col-2" id="reset" onClick={resetGame}>
+                        <img className={style["custom-choice"]} src="/img/game/refresh.png" alt="refresh" />
+                    </div>
+
+                    <div className="col-2"></div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default RockPaperScissors;
