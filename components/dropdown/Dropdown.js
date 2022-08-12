@@ -29,9 +29,9 @@ class DropdownButton extends React.Component {
         </DropdownToggle>
         <DropdownMenu>
           <DropdownItem header>Score:</DropdownItem>
-          <DropdownItem onClick={() => {
-            this.props.profile();
-          }}>Update Profile</DropdownItem>
+          <DropdownItem href='/profile'>
+            Show Profile
+          </DropdownItem>
           <DropdownItem divider />
           <DropdownItem onClick={() => {
             this.props.logout()
@@ -54,9 +54,6 @@ const mapDispatchToProps = (dispatch) => {
         window.location.reload();
         dispatch(removeAuth({ email }));
         router.push('/');      
-    },
-    profile: () => {
-      router.push('/profile');
     }
   }
 }

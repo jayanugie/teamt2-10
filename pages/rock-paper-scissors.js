@@ -3,17 +3,19 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Table } from "reactstrap";
 import style from '../styles/Game.module.css';
+import { useSelector } from "react-redux";
 
 function RockPaperScissors() {
 
     const router = useRouter();
 
+    const { email } = useSelector(state => state.auth);
+
     useEffect(() => {
-        const isAuthenticated = localStorage.getItem("isAuthenticated");
-        if (!isAuthenticated) {
+        if (email == true) {
             alert("Please login first!")
             router.push("/login");
-        }
+        } 
     });
 
     class Game {
