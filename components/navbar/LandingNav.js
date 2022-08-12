@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Button, Dropdown } from "reactstrap";
-import { useRouter } from "next/router";
 import style from "../../styles/Navbar.module.css";
 import DropdownButton from "../dropdown/Dropdown";
 import { useSelector } from "react-redux";
@@ -26,8 +25,6 @@ function LandingNav() {
     }
   });
 
-  const router = useRouter();
-
   return (
     <>
       {/* Navbar */}
@@ -51,10 +48,7 @@ function LandingNav() {
           <NavItem>
             <NavLink
               className={style.link}
-              href="#"
-              onClick={() => {
-                router.push("/home");
-              }}
+              href="/home"
               activeStyle
             >
               Home
@@ -78,10 +72,7 @@ function LandingNav() {
           <NavItem hidden id="login">
             <NavLink
               className={style.link}
-              href="#"
-              onClick={() => {
-                router.push("/login");
-              }}
+              href="/login"
               activeStyle
             >
               Login
@@ -90,10 +81,7 @@ function LandingNav() {
           <NavItem hidden id="register">
             <NavLink
               className={(style.link, style.signup)}
-              href="#"
-              onClick={() => {
-                router.push("/register");
-              }}
+              href="/register"
               activeStyle
             >
               Sign Up
@@ -104,10 +92,7 @@ function LandingNav() {
             <NavLink
               className={(style.link, style.signup)}
               id="loginUser"
-              href="#"
-              onClick={() => {
-                router.push("/profile");
-              }}
+              href="/profile"
               activeStyle
             >
             </NavLink>

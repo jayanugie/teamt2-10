@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { Navbar, NavbarBrand, Nav, NavLink, NavItem } from "reactstrap";
 import style from "../../styles/Navbar.module.css";
 import DropdownButton from "../dropdown/Dropdown";
@@ -6,7 +5,6 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 function HomeNav() {
-  const router = useRouter();
   const { email } = useSelector((state) => state.auth);
 
   useEffect(() => {
@@ -58,10 +56,7 @@ function HomeNav() {
           <NavItem>
             <NavLink
               className={style.link}
-              href="#"
-              onClick={() => {
-                router.push("/game-list");
-              }}
+              href="/game-list"
               activeStyle
             >
               Game List
@@ -70,10 +65,7 @@ function HomeNav() {
           <NavItem>
             <NavLink
               className={style.link}
-              href="#"
-              onClick={() => {
-                router.push("/players");
-              }}
+              href="/players"
               activeStyle
             >
               Players
@@ -85,10 +77,7 @@ function HomeNav() {
           <NavItem hidden id="login">
             <NavLink
               className={style.link}
-              href="#"
-              onClick={() => {
-                router.push("/login");
-              }}
+              href="/login"
               activeStyle
             >
               Login
@@ -97,10 +86,7 @@ function HomeNav() {
           <NavItem hidden id="register">
             <NavLink
               className={(style.link, style.signup)}
-              href="#"
-              onClick={() => {
-                router.push("/register");
-              }}
+              href="/register"
               activeStyle
             >
               Sign Up
@@ -111,10 +97,7 @@ function HomeNav() {
             <NavLink
               className={(style.link, style.signup)}
               id="loginUser"
-              href="#"
-              onClick={() => {
-                router.push("/profile");
-              }}
+              href="/profile"
               activeStyle
             ></NavLink>
             <DropdownButton />
