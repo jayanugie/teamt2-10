@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import HomeNav from "../components/navbar/HomeNav";
 import Footer from "../components/footer/Footer";
 import style from "../styles/Home.module.css";
+import Carousel from '../components/carousel/carousel'
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +11,7 @@ import { removeAuth } from '../features/authSlice';
 
 function Home() {
   const router = useRouter();
-  
+
   const { email } = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
@@ -46,7 +47,7 @@ function Home() {
       <hr />
  */}
       <br />
-
+      <Carousel />
       <h1 className="text-center bold">TOP GAMES</h1>
 
       <br />
