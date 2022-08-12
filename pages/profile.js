@@ -1,18 +1,20 @@
 import HomeNav from "../components/navbar/HomeNav";
 import Footer from "../components/footer/Footer";
+import { useSelector } from "react-redux";
 import { useEffect } from "react";
 
 function Profile() {
 
-    useEffect(() => {
-        const user = document.getElementById("user");
-        const emailKey = localStorage.getItem("email");
+    // const { email } = useSelector(state => state.auth);
 
-        if (emailKey) {
-            user.innerHTML = `${emailKey}`
-        }
-    });
-
+    // useEffect(() => {
+    //     const user = document.getElementById('user');
+    //     if (email !== true) {
+    //         user.innerHTML = `${email}`
+    //     } else {
+    //         user.innerHTML = ``
+    //     }
+    // })
 
     return (
         <div className="vh-100 section-css">
@@ -27,10 +29,10 @@ function Profile() {
                                 </div>
                                 <div className="col-md-6 col-lg-7 d-flex align-items-center">
                                     <div className="card-body p-4 p-lg-5 text-black">
-                                        <h3 className="position-absolute top-0 start-50 translate-middle-x text-body ms-5 mt-5"
-                                            id="user"
-                                        >
+                                        <h3 className="position-absolute top-0 start-50 translate-middle-x text-body ms-5 mt-3"
+                                        >Profile
                                         </h3>
+                                        <h5 id='user'></h5>
                                     </div>
                                 </div>
                             </div>

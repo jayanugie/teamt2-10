@@ -6,35 +6,27 @@ import axios from "axios";
 import RegistLoginNav from "../components/navbar/RegistLoginNav";
 import style from "../styles/RegistLogin.module.css";
 
+import { useDispatch } from "react-redux";
+import { auth } from "../features/authSlice";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-  useEffect(() => {
-    const isAuthenticated = localStorage.getItem("isAuthenticated");
-    const emailKey = localStorage.getItem("email");
-
-    isAuthenticated ? alert("User already login") : router.push("/login");
-
-    if (isAuthenticated && emailKey) {
-      router.push("/home");
-    }
-  }, []);
+  const dispatch = useDispatch();
 
   async function submit(event) {
     event.preventDefault();
-    const emailValue = email;
 
     try {
       const result = await axios.post("http://localhost:4000/login", {
         email: email,
         password: password,
       });
+      dispatch(auth({ email }));
       alert(result.data.message);
-      localStorage.setItem("isAuthenticated", true);
-      localStorage.setItem("email", emailValue);
-      router.push("/home");
+      router.push("/");
     } catch (err) {
       alert("You don't have an account, create your account");
     }
@@ -64,6 +56,7 @@ function Login() {
                           E-mail
                         </Label>
                         <Input
+                          value={email}
                           onChange={(event) => {
                             setEmail(event.target.value);
                           }}

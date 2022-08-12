@@ -4,44 +4,32 @@ import HomeNav from "../components/navbar/HomeNav";
 import Footer from "../components/footer/Footer";
 import style from "../styles/Home.module.css";
 
+// redux
+import { useDispatch, useSelector } from 'react-redux';
+import { removeAuth } from '../features/authSlice';
+
 function Home() {
   const router = useRouter();
+  
+  const { email } = useSelector(state => state.auth);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const emailKey = localStorage.getItem("email");
-    const name = document.getElementById("name");
-    const logoutButton = document.getElementById("logout");
-    const loginButton = document.getElementById("login");
-    if (emailKey) {
-      name.innerHTML = `Halo ${emailKey}`;
-      logoutButton.hidden = false;
-    } else {
-      name.innerHTML = `Welcome,`;
-      logoutButton.hidden = true;
-      loginButton.hidden = false;
-    }
-  });
 
-  function logout() {
-    const removeEmail = "email";
-    const removeAuth = "isAuthenticated";
-    const score = "SCORE";
-    window.confirm("Are you sure want to logout?");
-    localStorage.removeItem(removeEmail);
-    localStorage.removeItem(removeAuth);
-    localStorage.removeItem(score);
-    window.location.reload();
-    router.push("/home");
-  }
+  // function logout() {
+  //   window.confirm("Are you sure want to logout?");
+  //   window.location.reload();
+  //   dispatch(removeAuth({ email }));
+  //   router.push("/home");
+  // }
 
-  function login() {
-    router.push("/login");
-  }
+  // function login() {
+  //   router.push("/login");
+  // }
 
   return (
     <>
       <HomeNav />
-      <div className="text-center">
+      {/* <div className="text-center">
         <a href="/profile">
           <img src="/img/profile.png" alt="profile pic" className={style.profile}></img>
         </a>
@@ -56,6 +44,8 @@ function Home() {
       </div>
 
       <hr />
+ */}
+      <br />
 
       <h1 className="text-center bold">TOP GAMES</h1>
 
