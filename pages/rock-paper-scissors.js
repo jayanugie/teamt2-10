@@ -3,17 +3,20 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Table } from "reactstrap";
 import style from '../styles/Game.module.css';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import { win, lost } from '../features/authSlice';
 
 function RockPaperScissors() {
 
     const router = useRouter();
 
     const { email } = useSelector(state => state.auth);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (email == true) {
-            alert("Please login first!")
+            alert("Please login first!");
             router.push("/login");
         } 
     });
@@ -102,6 +105,7 @@ function RockPaperScissors() {
             vsElement.innerHTML = "COM WIN";
             vsElement.classList.remove(style["custom-vs-text"]);
             vsElement.classList.add(style["custom-green-vs-box"]);
+            dispatch(lost());
         }
 
         resultPlayerWin() {
@@ -111,14 +115,7 @@ function RockPaperScissors() {
             vsElement.innerHTML = "PLAYER 1 WIN";
             vsElement.classList.remove(style["custom-vs-text"]);
             vsElement.classList.add(style["custom-green-vs-box"]);
-
-            const score = "SCORE";
-            if (localStorage.getItem(score) === null) {
-                localStorage.setItem(score, 0);
-            }
-            let count = localStorage.getItem(score);
-            count++;
-            localStorage.setItem(score, count);
+            dispatch(win());
         }
     }
 
@@ -143,15 +140,11 @@ function RockPaperScissors() {
 
     const [modal, setModal] = React.useState(false);
     const [tampil, setTampil] = React.useState(false);
-    const [playerName, setPlayerName] = React.useState("");
-    const [playerScore, setPlayerScore] = React.useState("");
+    const winScore = useSelector(state => state.auth.win);
+    const lostScore = useSelector(state => state.auth.lost);
     const toggle = () => {
         setModal(!modal);
         setTampil(!tampil);
-        const email = "email";
-        setPlayerName(localStorage.getItem(email));
-        const score = "SCORE";
-        setPlayerScore(localStorage.getItem(score));
     }
 
 
@@ -191,13 +184,15 @@ function RockPaperScissors() {
                                             <thead>
                                                 <tr>
                                                     <th>Player</th>
-                                                    <th>Score</th>
+                                                    <th>Win</th>
+                                                    <th>Lost</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>{playerName}</td>
-                                                    <td>{playerScore}</td>
+                                                    <td>{email}</td>
+                                                    <td>{winScore}</td>
+                                                    <td>{lostScore}</td>
                                                 </tr>
                                             </tbody>
                                         </>
