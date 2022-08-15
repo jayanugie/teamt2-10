@@ -44,14 +44,11 @@ function Home() {
         </button>
       </div>
 
-      <hr />
+
  */}
-      <br />
+
       <Carousel />
-      <h1 className="text-center bold">TOP GAMES</h1>
-
-      <br />
-
+      <h1 className="text-center bold m-5">TOP GAMES</h1>
       <div className={style["container-fluid"]}>
         {/* 1 */}
         <div className={`card ${style.game}`}>

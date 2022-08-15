@@ -9,24 +9,24 @@ import {
 
 const items = [
     {
-        src: 'https://picsum.photos/id/123/1200/400',
-        altText: 'Slide 1',
+        src: '/img/home/board-games.png',
+        altText: '',
         width: '100%',
-        caption: 'Slide 1',
+        caption: '',
         key: 1,
     },
     {
-        src: '/img/home/rock-paper-scissors.jpg',
-        altText: 'Slide 2',
-        caption: 'Slide 2',
+        src: '/img/home/star.png',
+        altText: '',
+        caption: '',
         width: '100%',
         height: '10%',
         key: 2,
     },
     {
-        src: 'https://picsum.photos/id/678/1200/400',
-        altText: 'Slide 3',
-        caption: 'Slide 3',
+        src: '/img/home/worthy.png',
+        altText: '',
+        caption: '',
         width: '100%',
         key: 3,
     },
