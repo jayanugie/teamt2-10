@@ -3,8 +3,10 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap
 import style from '../../styles/Navbar.module.css';
 
 import { removeAuth } from '../../features/authSlice';
-import { useSelector, connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { useRouter } from 'next/router';
+
+import Score from '../navbar/Score';
 
 class DropdownButton extends React.Component {
   constructor(props) {
@@ -20,7 +22,7 @@ class DropdownButton extends React.Component {
     this.setState(prevState => ({
       dropdownOpen: !prevState.dropdownOpen
     }));
-  }  
+  }
 
   render() {
     return (
@@ -29,6 +31,10 @@ class DropdownButton extends React.Component {
         </DropdownToggle>
         <DropdownMenu>
           <DropdownItem header>Score:</DropdownItem>
+          <DropdownItem text>
+            <Score />
+          </DropdownItem>
+          <DropdownItem divider />
           <DropdownItem href='/profile'>
             Show Profile
           </DropdownItem>
@@ -46,13 +52,11 @@ class DropdownButton extends React.Component {
 const mapDispatchToProps = (dispatch) => {
 
   const router = useRouter()
-	const { email } = useSelector(state => state.auth);
 
   return {
     logout: () => {
         window.confirm("Are you sure want to logout?");
-        window.location.reload();
-        dispatch(removeAuth({ email }));
+        dispatch(removeAuth());
         router.push('/');      
     }
   }
