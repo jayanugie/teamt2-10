@@ -5,15 +5,15 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 function HomeNav() {
-  const { email } = useSelector((state) => state.auth);
+  const { username } = useSelector((state) => state.auth);
 
   useEffect(() => {
     const user = document.getElementById("user");
     const register = document.getElementById("register");
     const login = document.getElementById("login");
     const loginUser = document.getElementById("loginUser");
-    if (email !== true) {
-      loginUser.innerHTML = `Welcome, ${email}`;
+    if (username !== true) {
+      loginUser.innerHTML = `Welcome, ${username}`;
       user.hidden = false;
       register.hidden = true;
       login.hidden = true;

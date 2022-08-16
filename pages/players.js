@@ -36,7 +36,7 @@ class Players extends React.Component {
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Email</th>
+                                <th scope="col">Username</th>
                                 <th scope="col">Role</th>
                             </tr>
                         </thead>
@@ -45,7 +45,7 @@ class Players extends React.Component {
                                 return (
                                     <tr>
                                         <th key={idx} scope="row">{user.id}</th>
-                                        <td key={idx}>{user.email}</td>
+                                        <td key={idx}>{user.username}</td>
                                         <td key={idx}>{user.role}</td>
                                     </tr>
                                 )

@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { auth } from "../features/authSlice";
 
 function Login() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
 
@@ -21,10 +21,10 @@ function Login() {
 
     try {
       const result = await axios.post("http://localhost:4000/login", {
-        email: email,
+        username: username,
         password: password,
       });
-      dispatch(auth({ email }));
+      dispatch(auth({ username }));
       alert(result.data.message);
       router.push("/");
     } catch (err) {
@@ -52,18 +52,18 @@ function Login() {
                       </div>
                       <h2 className={`fw-normal mb-3 pb-3 ${style["sign-css"]}`}>Sign into your account</h2>
                       <FormGroup>
-                        <Label for="email" hidden>
-                          E-mail
+                        <Label for="username" hidden>
+                          E-mail / Username
                         </Label>
                         <Input
-                          value={email}
+                          value={username}
                           onChange={(event) => {
-                            setEmail(event.target.value);
+                            setUsername(event.target.value)
                           }}
                           type="text"
-                          id="email"
-                          name="email"
-                          placeholder="Enter your e-mail address"
+                          id="username"
+                          name="username"
+                          placeholder="Enter your username"
                         />
                       </FormGroup>{" "}
                       <FormGroup>
@@ -72,7 +72,7 @@ function Login() {
                         </Label>
                         <Input
                           onChange={(event) => {
-                            setPassword(event.target.value);
+                            setPassword(event.target.value)
                           }}
                           type="password"
                           id="password"
