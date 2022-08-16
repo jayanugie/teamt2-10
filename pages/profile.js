@@ -1,49 +1,59 @@
 import HomeNav from "../components/navbar/HomeNav";
-import Footer from "../components/footer/Footer";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
 
 function Profile() {
+  const { username } = useSelector((state) => state.auth);
 
-    // const { email } = useSelector(state => state.auth);
+  const [ post, setPost ] = useState(null);
 
-    // useEffect(() => {
-    //     const user = document.getElementById('user');
-    //     if (email !== true) {
-    //         user.innerHTML = `${email}`
-    //     } else {
-    //         user.innerHTML = ``
-    //     }
-    // })
+  useEffect(() => {
+    axios.get(`http://localhost:4000/biodata/${username}`)
+    .then(res => {
+      setPost({
+        res: res.data
+      });
+      console.log(res.data);
+    });
+  }, []);
 
-    return (
-        <div className="vh-100 section-css">
-            <HomeNav />
-            <div className="container py-5 h-100">
-                <div className="row d-flex justify-content-center align-items-center h-100">
-                    <div className="col col-xl-10">
-                        <div className="card card-css">
-                            <div className="row g-0">
-                                <div className="col-md-6 col-lg-5 d-none d-md-block">
-                                    <img src="/img/profile.png" alt="login form" className="img-fluid img-f-css" />
-                                </div>
-                                <div className="col-md-6 col-lg-7 d-flex align-items-center">
-                                    <div className="card-body p-4 p-lg-5 text-black">
-                                        <h3 className="position-absolute top-0 start-50 translate-middle-x text-body ms-5 mt-3"
-                                        >Profile
-                                        </h3>
-                                        <h5 id='user'></h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  if (!post) return null;
+
+
+  return (
+    <div>
+      <HomeNav />
+      <div>
+        <div className="position-relative">
+          <div className="position-absolute start-50 translate-middle-x mt-5">
+            <div
+              className="card"
+              style={{
+                width: 350,
+                height: 500,
+              }}
+            >
+              <img src="/img/profile.png" className="card-img-top" alt="profile" />
+              <div className="card-body">
+                <h4 className="card-title">Profile</h4>
+                <div className="card-text">
+                  {post.res.map((user, idx) => {
+                    return (
+                    <ul>
+                      <li key={idx}>Email: {user.email}</li>
+                      <li key={idx}>City: {user.city}</li>
+                    </ul>
+                    )
+                  })}
                 </div>
+              </div>
             </div>
-            <Footer />
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  );
 }
-
 
 export default Profile;

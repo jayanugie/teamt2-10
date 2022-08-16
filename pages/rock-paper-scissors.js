@@ -11,11 +11,11 @@ function RockPaperScissors() {
 
     const router = useRouter();
 
-    const { email } = useSelector(state => state.auth);
+    const { username } = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (email == true) {
+        if (username == true) {
             alert("Please login first!");
             router.push("/login");
         } 
@@ -190,7 +190,7 @@ function RockPaperScissors() {
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>{email}</td>
+                                                    <td>{username}</td>
                                                     <td>{winScore}</td>
                                                     <td>{lostScore}</td>
                                                 </tr>

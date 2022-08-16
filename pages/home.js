@@ -1,54 +1,22 @@
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import HomeNav from "../components/navbar/HomeNav";
 import Footer from "../components/footer/Footer";
 import style from "../styles/Home.module.css";
 import Carousel from '../components/carousel/carousel'
 
-// redux
-import { useDispatch, useSelector } from 'react-redux';
-import { removeAuth } from '../features/authSlice';
-
 function Home() {
-  const router = useRouter();
-
-  const { email } = useSelector(state => state.auth);
-  const dispatch = useDispatch();
-
-
-  // function logout() {
-  //   window.confirm("Are you sure want to logout?");
-  //   window.location.reload();
-  //   dispatch(removeAuth({ email }));
-  //   router.push("/home");
-  // }
-
-  // function login() {
-  //   router.push("/login");
-  // }
 
   return (
     <>
       <HomeNav />
-      {/* <div className="text-center">
-        <a href="/profile">
-          <img src="/img/profile.png" alt="profile pic" className={style.profile}></img>
-        </a>
-        <br />
-        <h4 id="name"></h4>
-        <button onClick={logout} className="btn btn-danger" id="logout" hidden>
-          Logout
-        </button>
-        <button onClick={login} className="btn btn-primary" id="login" hidden>
-          Login
-        </button>
-      </div>
-
-
- */}
-
       <Carousel />
-      <h1 className="text-center bold m-5">TOP GAMES</h1>
+      <div className="text-center">
+        <h1 className="m-3">TOP GAMES</h1>
+        <div className="m-4">
+          <p>Our games include Rock Paper Scissors, Snake, Chess, Solitaire, Tetris, etc.<br />
+            Which have generated more than 10 million downloads. We have unique understanding of the digital games<br />
+            space, connecting more than 5 million active daily players worldwide.</p>
+        </div>
+      </div>
       <div className={style["container-fluid"]}>
         {/* 1 */}
         <div className={`card ${style.game}`}>
