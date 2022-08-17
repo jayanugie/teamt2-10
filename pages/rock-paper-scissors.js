@@ -153,7 +153,7 @@ function RockPaperScissors() {
             <div className="container-fluid mt-3">
                 <div className="row align-items-center">
                     <div className={`col-1 fs-1 fw-bolder text-end ${style['custom-back-button']}`}>
-                        <a href="/play-game" className="text-reset text-decoration-none">
+                        <a href="/home" className="text-reset text-decoration-none">
                             &lt;
                         </a>
                     </div>

@@ -2,8 +2,13 @@ import HomeNav from "../components/navbar/HomeNav";
 import Footer from "../components/footer/Footer";
 import style from "../styles/Home.module.css";
 import Carousel from '../components/carousel/carousel'
+import PlayedGames from "../components/reduxFeatures/PlayedGames";
+import { useDispatch } from "react-redux";
+import { playedGames } from "../features/authSlice";
 
 function Home() {
+
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -29,7 +34,9 @@ function Home() {
               <br />
               <br />
             </p>
-            <a href="/play-game" class={`btn btn-primary ${style.button}`}>
+            <PlayedGames />
+            <a href="/rock-paper-scissors" class={`btn btn-primary ${style.button}`}
+                onClick={() => dispatch(playedGames())}>
               Play Now
             </a>
           </div>

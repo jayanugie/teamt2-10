@@ -10,7 +10,7 @@ function GameList() {
         <ListGroup>
           <ListGroupItem active tag="button" action>Game list</ListGroupItem>
           <ListGroupItem tag="button" action>
-            <a className="text-body text-decoration-none" href="/play-game">Rock Paper Scissors</a>
+            <a className="text-body text-decoration-none" href="/rock-paper-scissors">Rock Paper Scissors</a>
           </ListGroupItem>
           <ListGroupItem disabled tag="button" action>Snake</ListGroupItem>
           <ListGroupItem disabled tag="button" action>Chess</ListGroupItem>
