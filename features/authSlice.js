@@ -5,7 +5,8 @@ const authSlice = createSlice({
     initialState: {
         username: '',
         win: 0,
-        lost: 0
+        lost: 0,
+        playedGames: false
     },
     reducers: {
         auth: (state, action) => {
@@ -15,16 +16,20 @@ const authSlice = createSlice({
             state.username = state.username !== action.payload;
             state.win = 0;
             state.lost = 0;
+            state.playedGames = false;
         },
         win: (state) => {
             state.win += 1
         },
         lost: (state) => {
             state.lost += 1
+        },
+        playedGames: (state) => {
+            state.playedGames = true;
         }
     }
 });
 
-export const { auth, removeAuth, win, lost } = authSlice.actions;
+export const { auth, removeAuth, win, lost, playedGames } = authSlice.actions;
 
 export default authSlice.reducer;

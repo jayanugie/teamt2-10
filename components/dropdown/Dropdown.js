@@ -32,6 +32,7 @@ class DropdownButton extends React.Component {
         <DropdownMenu>
           <DropdownItem header>Score:</DropdownItem>
           <DropdownItem text>
+            RPS Game
             <Score />
           </DropdownItem>
           <DropdownItem divider />

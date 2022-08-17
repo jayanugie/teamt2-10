@@ -1,7 +1,12 @@
 import HomeNav from "../components/navbar/HomeNav";
 import { Container, ListGroup, ListGroupItem } from 'reactstrap';
+import { playedGames } from "../features/authSlice";
+import { useDispatch } from "react-redux";
 
 function GameList() {
+
+  const dispatch = useDispatch();
+
   return (
     <>
       <HomeNav />
@@ -10,7 +15,7 @@ function GameList() {
         <ListGroup>
           <ListGroupItem active tag="button" action>Game list</ListGroupItem>
           <ListGroupItem tag="button" action>
-            <a className="text-body text-decoration-none" href="/play-game">Rock Paper Scissors</a>
+            <a className="text-body text-decoration-none" href="/rock-paper-scissors" onClick={() => dispatch(playedGames())}>Rock Paper Scissors</a>
           </ListGroupItem>
           <ListGroupItem disabled tag="button" action>Snake</ListGroupItem>
           <ListGroupItem disabled tag="button" action>Chess</ListGroupItem>
