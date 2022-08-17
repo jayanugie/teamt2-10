@@ -26,13 +26,13 @@ class Players extends React.Component {
         return (
             <>
                 <HomeNav />
-                <div class="container w-50 mt-3">
-                    <nav class="navbar navbar-light bg-light">
-                        <div class="container">
-                            <a class="navbar-brand">Players</a>
+                <div className="container w-50 mt-3">
+                    <nav className="navbar navbar-light bg-light">
+                        <div className="container">
+                            <a className="navbar-brand">Players</a>
                         </div>
                     </nav>
-                    <table class="table table-hover">
+                    <table className="table table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>

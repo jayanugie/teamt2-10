@@ -67,7 +67,7 @@ function Home() {
             <PlayedGames />
             <a
               href="/rock-paper-scissors"
-              class={`btn btn-primary ${style.button}`}
+              className={`btn btn-primary ${style.button}`}
               onClick={() => dispatch(playedGames())}
             >
               Play Now
@@ -92,7 +92,7 @@ function Home() {
               time the snake eats a piece of food, its tail grows longer, making
               the game increasingly difficult.
             </p>
-            <a onClick={toggle} class={`btn btn-primary ${style.button}`}>Play Now</a>
+            <a onClick={toggle} className={`btn btn-primary ${style.button}`}>Play Now</a>
           </div>
         </div>
 
@@ -112,7 +112,7 @@ function Home() {
               designed pieces of contrasting colours, commonly white and black.
               The objective of the game is to capture the opponent's king.
             </p>
-            <a onClick={toggle} class={`btn btn-primary ${style.button}`}>Play Now</a>
+            <a onClick={toggle} className={`btn btn-primary ${style.button}`}>Play Now</a>
           </div>
         </div>
 
@@ -133,7 +133,7 @@ function Home() {
               <br />
               <br />
             </p>
-            <a onClick={toggle} class={`btn btn-primary ${style.button}`}>
+            <a onClick={toggle} className={`btn btn-primary ${style.button}`}>
               Play Now
             </a>
           </div>
@@ -155,7 +155,7 @@ function Home() {
               <br />
               <br />
             </p>
-            <a onClick={toggle} class={`btn btn-primary ${style.button}`}>
+            <a onClick={toggle} className={`btn btn-primary ${style.button}`}>
               Play Now
             </a>
           </div>
@@ -176,7 +176,7 @@ function Home() {
               <br />
               <br />
             </p>
-            <a onClick={toggle} class={`btn btn-primary ${style.button}`}>
+            <a onClick={toggle} className={`btn btn-primary ${style.button}`}>
               Play Now
             </a>
           </div>
