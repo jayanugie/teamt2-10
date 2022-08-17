@@ -27,7 +27,14 @@ function Register() {
       router.push("/login");
     } catch (err) {
       alert("Your email or username is already in use.");
+      window.location.reload();
     }
+  }
+
+  const btnClick = () => {
+    const btn = document.getElementById('btn');
+    btn.innerHTML = "Processing";
+    btn.classList.add(style['active']);
   }
 
   return (
@@ -72,7 +79,7 @@ function Register() {
                           type="text"
                           id="username"
                           name="username"
-                          placeholder="Enter a Username"
+                          placeholder="Enter a username"
                         />
                       </FormGroup>
                       <FormGroup>
@@ -100,7 +107,7 @@ function Register() {
                           type="password"
                           id="password"
                           name="password"
-                          placeholder="Enter your Password"
+                          placeholder="Enter your password"
                           for="password"
                         />
                       </FormGroup>
@@ -115,14 +122,16 @@ function Register() {
                           type="city"
                           id="city"
                           name="city"
-                          placeholder="Enter your City"
+                          placeholder="Enter your city"
                           for="city"
                         />
                       </FormGroup>
-                      <div className="pt-1 mb-4">
+                      <div className="pt-1 mb-4 d-grid gap-2">
                         <Button
+                          id="btn"
                           type="submit"
-                          className="btn btn-dark btn-lg btn-block"
+                          className="btn-dark"
+                          onClick={btnClick}
                         >
                           Create Account
                         </Button>

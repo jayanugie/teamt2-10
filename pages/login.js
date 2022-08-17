@@ -29,7 +29,14 @@ function Login() {
       router.push("/");
     } catch (err) {
       alert("You don't have an account, create your account");
+      window.location.reload();
     }
+  }
+
+  const btnClick = () => {
+    const btn = document.getElementById('btn');
+    btn.innerHTML = "Processing";
+    btn.classList.add(style['active']);
   }
 
   return (
@@ -77,11 +84,11 @@ function Login() {
                           type="password"
                           id="password"
                           name="password"
-                          placeholder="Enter your Password"
+                          placeholder="Enter your password"
                         />
                       </FormGroup>{" "}
-                      <div className="pt-1 mb-4">
-                        <Button className="btn btn-dark btn-lg btn-block" type="submit">
+                      <div className="pt-1 mb-4 d-grid gap-2">
+                        <Button className="btn-dark" type="submit" id="btn" onClick={btnClick}>
                           Login
                         </Button>
                       </div>
