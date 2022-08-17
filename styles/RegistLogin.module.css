@@ -39,3 +39,7 @@
 .social-links .space {
   padding: 7px;
 }
+
+.active {
+  background-color: #3FA796;
+}
