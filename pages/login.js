@@ -122,7 +122,7 @@ function Login() {
                       <p
                         className={`small mb-5 pb-lg-2 ${style["d-acnt-css"]}`}
                       >
-                        Don't have an account?{" "}
+                        Don&apos;t have an account?{" "}
                         <Link href="/register">
                           <a className={style["reg-css"]}>Register here</a>
                         </Link>

@@ -121,7 +121,7 @@ function Home() {
               Chess is one of the oldest and most popular board games. It is
               played by two opponents on a checkered board with specially
               designed pieces of contrasting colours, commonly white and black.
-              The objective of the game is to capture the opponent's king.
+              The objective of the game is to capture the opponent&apos;s king.
             </p>
             <a onClick={toggle} className={`btn btn-primary ${style.button}`}>
               Play Now
@@ -166,7 +166,7 @@ function Home() {
           <div className="card-body d-flex flex-column">
             <h5 className="card-title">Crash Team Racing</h5>
             <p className="card-text">
-              The game's story focuses on the efforts of Crash Bandicoot, Doctor
+              The game&apos;s story focuses on the efforts of Crash Bandicoot, Doctor
               Neo Cortex, who must race against the egomaniacal Nitros Oxide to
               save the Earth from destruction.
               <br />
