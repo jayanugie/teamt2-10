@@ -1,5 +1,6 @@
 import style from "../../styles/Footer.module.css";
 import { FaFacebookF, FaTwitter, FaGoogle } from "react-icons/fa";
+import Link from "next/link";
 
 function Footer() {
   return (
@@ -13,7 +14,9 @@ function Footer() {
                 <h4 className={style.title}>company</h4>
                 <ul className={style.list}>
                   <li className={style.li}>
-                    <a href="#" className={style.detail}>about us</a>
+                    <Link href="#">
+                      <a className={style.detail}>about us</a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -22,7 +25,9 @@ function Footer() {
                 <h4 className={style.title}>get help</h4>
                 <ul className={style.list}>
                   <li className={style.li}>
-                    <a href="#" className={style.detail}>FAQ</a>
+                    <Link href="#">
+                      <a className={style.detail}>FAQ</a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -30,15 +35,21 @@ function Footer() {
               <div className={style["footer-col"]}>
                 <h4 className={style.title}>follow us</h4>
                 <div className={style["social-links"]}>
-                  <a href="https://www.facebook.com/" type="button" className={style.detail}>
-                    <FaFacebookF />{" "}
-                  </a>
-                  <a href="https://twitter.com/" type="button" className={style.detail}>
-                    <FaTwitter />{" "}
-                  </a>
-                  <a href="https://www.google.com/" type="button" className={style.detail}>
-                    <FaGoogle />
-                  </a>
+                  <Link href="https://www.facebook.com">
+                    <a type="button" className={style.detail}>
+                      <FaFacebookF />{" "}
+                    </a>
+                  </Link>
+                  <Link href="https://twitter.com/">
+                    <a type="button" className={style.detail}>
+                      <FaTwitter />{" "}
+                    </a>
+                  </Link>
+                  <Link href="https://www.google.com/">
+                    <a type="button" className={style.detail}>
+                      <FaGoogle />
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>

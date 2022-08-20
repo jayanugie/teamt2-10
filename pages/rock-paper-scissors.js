@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { win, lost } from "../features/authSlice";
 
 import Image from "next/image";
+import Link from "next/link";
 
 function RockPaperScissors() {
   const router = useRouter();
@@ -179,9 +180,9 @@ function RockPaperScissors() {
           <div
             className={`col-1 fs-1 fw-bolder text-end ${style["custom-back-button"]}`}
           >
-            <a href="/home" className="text-reset text-decoration-none">
-              &lt;
-            </a>
+            <Link href="/home">
+              <a className="text-reset text-decoration-none">&lt;</a>
+            </Link>
           </div>
 
           <div className="col-1 text-center">

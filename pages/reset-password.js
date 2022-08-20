@@ -13,8 +13,13 @@ function ResetPassword() {
           <div className="col col-xl-10">
             <div className={`card ${style["card-css"]}`}>
               <div className="card-body p-4 p-lg-5 text-black">
-                <h1 className={`fw-normal mb-2 pb-2 ${style["forgot-css"]}`}>Forgot your password?</h1>
-                <p>Enter your e-mail address and we will send you an e-mail with instructions to reset your password.</p>
+                <h1 className={`fw-normal mb-2 pb-2 ${style["forgot-css"]}`}>
+                  Forgot your password?
+                </h1>
+                <p>
+                  Enter your e-mail address and we will send you an e-mail with
+                  instructions to reset your password.
+                </p>
                 <Form>
                   <FormGroup>
                     <Label for="email" hidden>
@@ -31,7 +36,10 @@ function ResetPassword() {
                       placeholder="Enter your e-mail address"
                     />
                     <div>
-                      <Button type="submit" className="btn btn-dark btn-s btn-block">
+                      <Button
+                        type="submit"
+                        className="btn btn-dark btn-s btn-block"
+                      >
                         Reset Password
                       </Button>
                     </div>

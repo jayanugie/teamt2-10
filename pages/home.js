@@ -7,7 +7,8 @@ import { useDispatch } from "react-redux";
 import { playedGames } from "../features/authSlice";
 import { useState } from "react";
 import { Button, Modal, ModalBody } from "reactstrap";
-import Image from 'next/image'
+import Image from "next/image";
+import Link from "next/link";
 
 function Home() {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function Home() {
     setModal(!modal);
     setRandomScoreWin(randomScore(1, 20));
     setRandomScoreLost(randomScore(1, 20));
-  }
+  };
 
   return (
     <>
@@ -68,13 +69,14 @@ function Home() {
               <br />
             </p>
             <PlayedGames />
-            <a
-              href="/rock-paper-scissors"
-              className={`btn btn-primary ${style.button}`}
-              onClick={() => dispatch(playedGames())}
-            >
-              Play Now
-            </a>
+            <Link href="/rock-paper-scissors">
+              <a
+                className={`btn btn-primary ${style.button}`}
+                onClick={() => dispatch(playedGames())}
+              >
+                Play Now
+              </a>
+            </Link>
           </div>
         </div>
 
@@ -97,7 +99,9 @@ function Home() {
               time the snake eats a piece of food, its tail grows longer, making
               the game increasingly difficult.
             </p>
-            <a onClick={toggle} className={`btn btn-primary ${style.button}`}>Play Now</a>
+            <a onClick={toggle} className={`btn btn-primary ${style.button}`}>
+              Play Now
+            </a>
           </div>
         </div>
 
@@ -119,7 +123,9 @@ function Home() {
               designed pieces of contrasting colours, commonly white and black.
               The objective of the game is to capture the opponent's king.
             </p>
-            <a onClick={toggle} className={`btn btn-primary ${style.button}`}>Play Now</a>
+            <a onClick={toggle} className={`btn btn-primary ${style.button}`}>
+              Play Now
+            </a>
           </div>
         </div>
 
@@ -196,17 +202,19 @@ function Home() {
         </div>
       </div>
       <Footer />
-       {/* MODAL RANDOM SCORE */}
-        <Modal
-          isOpen={modal}
-          toggle={toggle}
-          modalTransition={{ timeout: 100 }}
-          style={{
-            width: 100
-          }}
-        >
-          <ModalBody>Win: {randomScoreWin} Lost: {randomScoreLost}</ModalBody>
-        </Modal>
+      {/* MODAL RANDOM SCORE */}
+      <Modal
+        isOpen={modal}
+        toggle={toggle}
+        modalTransition={{ timeout: 100 }}
+        style={{
+          width: 100,
+        }}
+      >
+        <ModalBody>
+          Win: {randomScoreWin} Lost: {randomScoreLost}
+        </ModalBody>
+      </Modal>
     </>
   );
 }

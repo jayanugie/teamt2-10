@@ -2,6 +2,7 @@ import HomeNav from "../components/navbar/HomeNav";
 import { Container, ListGroup, ListGroupItem } from 'reactstrap';
 import { playedGames } from "../features/authSlice";
 import { useDispatch } from "react-redux";
+import Link from 'next/link';
 
 function GameList() {
 
@@ -15,7 +16,9 @@ function GameList() {
         <ListGroup>
           <ListGroupItem active tag="button" action>Game list</ListGroupItem>
           <ListGroupItem tag="button" action>
-            <a className="text-body text-decoration-none" href="/rock-paper-scissors" onClick={() => dispatch(playedGames())}>Rock Paper Scissors</a>
+            <Link href="/rock-paper-scissors">
+              <a className="text-body text-decoration-none" onClick={() => dispatch(playedGames())}>Rock Paper Scissors</a>
+            </Link>
           </ListGroupItem>
           <ListGroupItem disabled tag="button" action>Snake</ListGroupItem>
           <ListGroupItem disabled tag="button" action>Chess</ListGroupItem>

@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { auth } from "../features/authSlice";
 
 import Image from "next/image";
+import Link from "next/link";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -113,45 +114,47 @@ function Login() {
                           Login
                         </Button>
                       </div>
-                      <a
-                        className={`small ${style["fgt-pss-css"]}`}
-                        href="/reset-password"
-                      >
-                        Forgot password?
-                      </a>
+                      <Link href="/reset-password">
+                        <a className={`small ${style["fgt-pss-css"]}`}>
+                          Forgot password?
+                        </a>
+                      </Link>
                       <p
                         className={`small mb-5 pb-lg-2 ${style["d-acnt-css"]}`}
                       >
                         Don't have an account?{" "}
-                        <a href="/register" className={style["reg-css"]}>
-                          Register here
-                        </a>
+                        <Link href="/register">
+                          <a className={style["reg-css"]}>Register here</a>
+                        </Link>
                       </p>
                       <hr />
                       <div className="text-center">
                         <p>or login with:</p>
                         <div className={style["social-links"]}>
-                          <a
-                            href="https://www.facebook.com/"
-                            type="button"
-                            className={`btn-lg fs-5 ${style.space}`}
-                          >
-                            <FaFacebookF />{" "}
-                          </a>
-                          <a
-                            href="https://twitter.com/"
-                            type="button"
-                            className={`btn-lg fs-5 ${style.space}`}
-                          >
-                            <FaTwitter />{" "}
-                          </a>
-                          <a
-                            href="https://www.google.com/"
-                            type="button"
-                            className={`btn-lg fs-5 ${style.space}`}
-                          >
-                            <FaGoogle />
-                          </a>
+                          <Link href="https://www.facebook.com/">
+                            <a
+                              type="button"
+                              className={`btn-lg fs-5 ${style.space}`}
+                            >
+                              <FaFacebookF />{" "}
+                            </a>
+                          </Link>
+                          <Link href="https://twitter.com/">
+                            <a
+                              type="button"
+                              className={`btn-lg fs-5 ${style.space}`}
+                            >
+                              <FaTwitter />{" "}
+                            </a>
+                          </Link>
+                          <Link href="https://www.google.com/">
+                            <a
+                              type="button"
+                              className={`btn-lg fs-5 ${style.space}`}
+                            >
+                              <FaGoogle />
+                            </a>
+                          </Link>
                         </div>
                       </div>
                     </Form>

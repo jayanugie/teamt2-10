@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import RegistLoginNav from "../components/navbar/RegistLoginNav";
 import style from "../styles/RegistLogin.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -33,10 +34,10 @@ function Register() {
   }
 
   const btnClick = () => {
-    const btn = document.getElementById('btn');
+    const btn = document.getElementById("btn");
     btn.innerHTML = "Processing";
-    btn.classList.add(style['active']);
-  }
+    btn.classList.add(style["active"]);
+  };
 
   return (
     <div className="vh-100 section-css">
@@ -143,35 +144,38 @@ function Register() {
                         className={`small mb-5 pb-lg-2 ${style["d-acnt-css"]}`}
                       >
                         Already have an account?{" "}
-                        <a href="/login" className={style["reg-css"]}>
-                          Login here
-                        </a>
+                        <Link href="/login">
+                          <a className={style["reg-css"]}>Login here</a>
+                        </Link>
                       </p>
                       <hr />
                       <div className="text-center">
                         <p>or sign up with:</p>
                         <div className={style["social-links"]}>
-                          <a
-                            href="https://www.facebook.com/"
-                            type="button"
-                            className={`btn-lg fs-5 ${style.space}`}
-                          >
-                            <FaFacebookF />{" "}
-                          </a>
-                          <a
-                            href="https://twitter.com/"
-                            type="button"
-                            className={`btn-lg fs-5 ${style.space}`}
-                          >
-                            <FaTwitter />{" "}
-                          </a>
-                          <a
-                            href="https://www.google.com/"
-                            type="button"
-                            className={`btn-lg fs-5 ${style.space}`}
-                          >
-                            <FaGoogle />
-                          </a>
+                          <Link href="https://www.facebook.com/">
+                            <a
+                              type="button"
+                              className={`btn-lg fs-5 ${style.space}`}
+                            >
+                              <FaFacebookF />{" "}
+                            </a>
+                          </Link>
+                          <Link href="https://twitter.com/">
+                            <a
+                              type="button"
+                              className={`btn-lg fs-5 ${style.space}`}
+                            >
+                              <FaTwitter />{" "}
+                            </a>
+                          </Link>
+                          <Link href="https://www.google.com/">
+                            <a
+                              type="button"
+                              className={`btn-lg fs-5 ${style.space}`}
+                            >
+                              <FaGoogle />
+                            </a>
+                          </Link>
                         </div>
                       </div>
                     </Form>
