@@ -50,7 +50,7 @@ class DropdownButton extends React.Component {
 }
 
 
-const mapDispatchToProps = (dispatch) => {
+const MapDispatchToProps = (dispatch) => {
 
   const router = useRouter()
 
@@ -63,4 +63,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(DropdownButton)
+export default connect(null, MapDispatchToProps)(DropdownButton)
