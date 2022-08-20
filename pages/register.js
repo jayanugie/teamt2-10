@@ -5,6 +5,7 @@ import { FaFacebookF, FaTwitter, FaGoogle } from "react-icons/fa";
 import { useRouter } from "next/router";
 import RegistLoginNav from "../components/navbar/RegistLoginNav";
 import style from "../styles/RegistLogin.module.css";
+import Image from "next/image";
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -46,10 +47,12 @@ function Register() {
             <div className={`card ${style["card-css"]}`}>
               <div className="row g-0">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
-                  <img
+                  <Image
                     src="/img/lorem-ipsum.png"
                     alt="register form"
                     className={`img-fluid ${style["img-f-css"]}`}
+                    height={800}
+                    width={500}
                   />
                 </div>
                 <div

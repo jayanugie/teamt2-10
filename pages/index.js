@@ -2,6 +2,7 @@ import LandingNav from "../components/navbar/LandingNav.js";
 import { Card, CardImg } from "reactstrap";
 import style from "../styles/Landing.module.css";
 import Footer from "../components/footer/Footer";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -14,8 +15,6 @@ export default function Home() {
           <CardImg
             src="/img/fornite.jpg"
             alt="Card image cap"
-            top
-            width="20%"
           />
         </Card>
       </div>
@@ -35,9 +34,10 @@ export default function Home() {
             <div className="row">
               <div className={`col-lg-4 ${style.column}`} >
                 <div className={style.icon}>
-                  <img src="http://api.elements.buildwithangga.com/storage/files/2/assets/Content/Content2/Content-2-11.png"
+                  <Image src="http://api.elements.buildwithangga.com/storage/files/2/assets/Content/Content2/Content-2-11.png"
                     alt=""
-                    width="50" />
+                    width={70}
+                    height={70} />
                 </div>
                 <h3 className={`text-white ${style['icon-title']}`}>Easy to Operate</h3>
                 <p className={style['icon-caption']}>
@@ -46,8 +46,10 @@ export default function Home() {
               </div>
               <div className={`col-lg-4 ${style.column}`}>
                 <div className={style.icon}>
-                  <img src="http://api.elements.buildwithangga.com/storage/files/2/assets/Content/Content2/Content-2-12.png"
-                    alt="" />
+                  <Image src="http://api.elements.buildwithangga.com/storage/files/2/assets/Content/Content2/Content-2-12.png"
+                    alt="" 
+                    width={70}
+                    height={70} />
                 </div>
                 <h3 className={`text-white ${style['icon-title']}`}>Light</h3>
                 <p className={style['icon-caption']}>
@@ -57,8 +59,10 @@ export default function Home() {
               </div>
               <div className={`col-lg-4 ${style.column}`}>
                 <div className={style.icon}>
-                  <img src="http://api.elements.buildwithangga.com/storage/files/2/assets/Content/Content2/Content-2-13.png"
-                    alt="" />
+                  <Image src="http://api.elements.buildwithangga.com/storage/files/2/assets/Content/Content2/Content-2-13.png"
+                    alt="" 
+                    width={70}
+                    height={70} />
                 </div>
                 <h3 className={`text-white ${style['icon-title']}`}>Free</h3>
                 <p className={style['icon-caption']}>
@@ -72,10 +76,11 @@ export default function Home() {
             <div className={style.card}>
               <div className="d-flex flex-lg-row flex-column align-items-center">
                 <div className="me-lg-3">
-                  <img
+                  <Image
                     src="/img/gaming.jpg"
                     alt="Logo"
-                    width={100} />
+                    width={100}
+                    height={100} />
                 </div>
                 <div className={`flex-grow-1 text-lg-start text-center ${style['card-text']}`}>
                   <h3 className={`text-white ${style['card-title']}`}>

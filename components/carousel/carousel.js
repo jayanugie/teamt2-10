@@ -6,6 +6,7 @@ import {
     CarouselIndicators,
     CarouselCaption,
 } from 'reactstrap';
+import Image from 'next/image'
 
 const items = [
     {
@@ -60,7 +61,7 @@ function Example(args) {
                 onExited={() => setAnimating(false)}
                 key={item.src}
             >
-                <img src={item.src} alt={item.altText} width={item.width} height={item.height} />
+                <Image src={item.src} alt={item.altText} width={item.width} height={item.height} />
                 <CarouselCaption
                     captionText={item.caption}
                     captionHeader={item.caption}

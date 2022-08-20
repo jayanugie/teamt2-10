@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { playedGames } from "../features/authSlice";
 import { useState } from "react";
 import { Button, Modal, ModalBody } from "reactstrap";
+import Image from 'next/image'
 
 function Home() {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ function Home() {
   return (
     <>
       <HomeNav />
-      <Carousel />
+      {/* <Carousel /> */}
       <div className="text-center">
         <h1 className="m-3">TOP GAMES</h1>
         <div className="m-4">
@@ -47,10 +48,12 @@ function Home() {
       <div className={style["container-fluid"]}>
         {/* 1 */}
         <div className={`card ${style.game}`}>
-          <img
+          <Image
             src="/img/home/rock-paper-scissors.jpg"
             className={`card-img-top ${style["img-game"]}`}
             alt="rock paper scissor"
+            width={500}
+            height={300}
           />
           <div className="card-body d-flex flex-column">
             <h5 className="card-title">Rock Paper Scissor</h5>
@@ -78,10 +81,12 @@ function Home() {
         {/* 2 */}
 
         <div className={`card ${style.game}`}>
-          <img
+          <Image
             src="/img/home/snake-game.jpg"
             className={`card-img-top ${style["img-game"]}`}
             alt="snake"
+            width={500}
+            height={300}
           />
           <div className="card-body  d-flex flex-column">
             <h5 className="card-title">Snake</h5>
@@ -99,10 +104,12 @@ function Home() {
         {/* 3 */}
 
         <div className={`card ${style.game}`}>
-          <img
+          <Image
             src="/img/home/chess.jpg"
             className={`card-img-top ${style["img-game"]}`}
             alt="snake"
+            width={500}
+            height={300}
           />
           <div className="card-body d-flex flex-column">
             <h5 className="card-title">Chess</h5>
@@ -119,10 +126,12 @@ function Home() {
         {/* 4 */}
 
         <div className={`card ${style.game}`}>
-          <img
+          <Image
             src="/img/home/solitaire.jpg"
             className={`card-img-top ${style["img-game"]}`}
             alt="snake"
+            width={500}
+            height={300}
           />
           <div className="card-body d-flex flex-column">
             <h5 className="card-title">Solitaire</h5>
@@ -141,10 +150,12 @@ function Home() {
 
         {/* 5 */}
         <div className={`card ${style.game}`}>
-          <img
+          <Image
             src="/img/home/ctr.jpg"
             className={`card-img-top ${style["img-game"]}`}
             alt="snake"
+            width={500}
+            height={300}
           />
           <div className="card-body d-flex flex-column">
             <h5 className="card-title">Crash Team Racing</h5>
@@ -163,10 +174,12 @@ function Home() {
 
         {/* 6 */}
         <div className={`card ${style.game}`}>
-          <img
+          <Image
             src="/img/home/tetris.jpg"
             className={`card-img-top ${style["img-game"]}`}
             alt="snake"
+            width={500}
+            height={300}
           />
           <div className="card-body d-flex flex-column">
             <h5 className="card-title">Tetris</h5>

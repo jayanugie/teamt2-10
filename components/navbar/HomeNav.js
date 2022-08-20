@@ -3,6 +3,7 @@ import style from "../../styles/Navbar.module.css";
 import DropdownButton from "../dropdown/Dropdown";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import Image from 'next/image';
 
 function HomeNav() {
   const { username } = useSelector((state) => state.auth);
@@ -30,17 +31,12 @@ function HomeNav() {
       <Navbar className={style.navbar} color="dark" dark>
         {/* NavBrand */}
         <NavbarBrand href="/">
-          <img
+          <Image
             alt="logo"
             src="/img/gaming.jpg"
-            style={{
-              height: 50,
-              width: 50,
-              padding: 6,
-              marginRight: 6,
-            }}
+            height={50}
+            width={50}
           />
-          Team T2
         </NavbarBrand>
         {/* Nav */}
         <Nav>

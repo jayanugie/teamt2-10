@@ -3,6 +3,7 @@ import { Navbar, NavbarBrand, Nav, NavLink, NavItem, Button, Dropdown } from "re
 import style from "../../styles/Navbar.module.css";
 import DropdownButton from "../dropdown/Dropdown";
 import { useSelector } from "react-redux";
+import Image from 'next/image'
 
 function LandingNav() {
 
@@ -31,17 +32,13 @@ function LandingNav() {
       <Navbar className={style.navbar} color="dark" dark>
         {/* NavBrand */}
         <NavbarBrand href="/">
-          <img
+          <Image
             alt="logo"
             src="/img/gaming.jpg"
-            style={{
-              height: 50,
-              width: 50,
-              padding: 6,
-              marginRight: 6,
-            }}
+            className="d-inline"
+            height= {50}
+            width= {50}
           />
-          Team T2
         </NavbarBrand>
         {/* Nav */}
         <Nav>

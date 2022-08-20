@@ -2,6 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ["api.elements.buildwithangga.com"]
+  }
 }
-
 module.exports = nextConfig
