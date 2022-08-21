@@ -37,11 +37,11 @@ function Players() {
             {post.res.map((user, idx) => {
               return (
                 <tr>
-                  <th key={idx} scope="row">
+                  <th key={idx.id} scope="row">
                     {user.id}
                   </th>
-                  <td key={idx}>{user.username}</td>
-                  <td key={idx}>{user.role}</td>
+                  <td key={idx.username}>{user.username}</td>
+                  <td key={idx.role}>{user.role}</td>
                 </tr>
               );
             })}
