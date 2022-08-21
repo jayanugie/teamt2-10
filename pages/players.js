@@ -13,7 +13,7 @@ function Players() {
       console.log(res.data);
     });
   }, []);
-  
+
   if (!post) return null;
 
   return (
@@ -36,12 +36,10 @@ function Players() {
           <tbody>
             {post.res.map((user, idx) => {
               return (
-                <tr>
-                  <th key={idx.id} scope="row">
-                    {user.id}
-                  </th>
-                  <td key={idx.username}>{user.username}</td>
-                  <td key={idx.role}>{user.role}</td>
+                <tr key={idx}>
+                  <th scope="row">{user.id}</th>
+                  <td>{user.username}</td>
+                  <td>{user.role}</td>
                 </tr>
               );
             })}
