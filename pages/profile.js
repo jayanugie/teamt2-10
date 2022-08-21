@@ -45,9 +45,9 @@ function Profile() {
                 <div className="card-text">
                   {post.res.map((user, idx) => {
                     return (
-                      <ul>
-                        <li key={idx}>Email: {user.email}</li>
-                        <li key={idx}>City: {user.city}</li>
+                      <ul key={idx}>
+                        <li>Email: {user.email}</li>
+                        <li>City: {user.city}</li>
                       </ul>
                     );
                   })}
