@@ -10,7 +10,7 @@ function Profile() {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/biodata/${username}`).then((res) => {
+    axios.get(`https://teamt2-backend.herokuapp.com/biodata/${username}`).then((res) => {
       setPost({
         res: res.data,
       });

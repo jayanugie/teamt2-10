@@ -19,7 +19,7 @@ function Register() {
     event.preventDefault();
 
     try {
-      const result = await axios.post("http://localhost:4000/register", {
+      const result = await axios.post("https://teamt2-backend.herokuapp.com/register", {
         email: email,
         username: username,
         password: password,

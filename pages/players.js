@@ -6,7 +6,7 @@ function Players() {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/players`).then((res) => {
+    axios.get(`https://teamt2-backend.herokuapp.com/players`).then((res) => {
       setPost({
         res: res.data,
       });
